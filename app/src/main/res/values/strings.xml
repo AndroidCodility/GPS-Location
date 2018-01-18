@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">GPS Location</string>
+    <string name="fetch_Location">Fetch Location</string>
+    <string name="location">Using Location in your app has incredible potential in making your app seem intelligent to end users. With location data, your app can predict a user’s potential actions, recommend actions, or perform actions in the background without user interaction.</string>
+</resources>
