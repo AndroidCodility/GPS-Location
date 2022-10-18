@@ -11,12 +11,12 @@ import android.location.LocationManager
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
-import android.support.v4.app.ActivityCompat
-import android.support.v4.content.ContextCompat
-import android.support.v7.app.AlertDialog
-import android.support.v7.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, com.google.andro
             return
         }
 
-        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                 //Location Permission already granted
                 getLocation();
@@ -59,13 +59,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, com.google.andro
         mLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
 
         if (mLocation == null) {
-            startLocationUpdates();
+            startLocationUpdates()
         }
         if (mLocation != null) {
             tvLatitude.text = mLocation!!.latitude.toString()
             tvLongitude.text = mLocation!!.longitude.toString()
         } else {
-            Toast.makeText(this, "Location not Detected", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Location not Detected", Toast.LENGTH_SHORT).show()
         }
     }
 
